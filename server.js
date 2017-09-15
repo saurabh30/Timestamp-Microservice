@@ -35,12 +35,14 @@ app.route('/_api/package.json')
   
 app.route('/')
     .get(function(req, res) {
-      var query=req.query;
-       res.send(query);
-        res.end();
-		  //res.sendFile(process.cwd() + '/views/index.html');
+    
+		  res.sendFile(process.cwd() + '/views/index.html');
     })
-app.get('/')
+
+app.get('/:name',function(req,res){
+  var name=req.params.name;
+  
+})
 // Respond not found to all the wrong routes
 app.use(function(req, res, next){
   res.status(404);
