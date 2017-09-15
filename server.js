@@ -41,7 +41,7 @@ app.route('/')
 
 app.get('/:name',function(req,res){
   var name=req.params.name;
-  
+  res.send(name);
 })
 // Respond not found to all the wrong routes
 app.use(function(req, res, next){
