@@ -43,17 +43,16 @@ function unixtime(date){
   date=new Date(d*1000);
   return {unixtime:d}
 }
-function parseDate(time){
-  var t=time;
-  time=new Date(time*1000);
-  var str=time.toDateString();
+function parseDate(date){
+  var t=new Date(date);
+  
   return {
-    unixtime:t,
-    natural:str
+    unixtime:t.getTime()/1000,
+    natural:date
   }
   
 }
-app.get('/:time',function(req,res){
+app.get('/:date',function(req,res){
   var date=req.params.date;
   res.send(parseDate(date));
 });
