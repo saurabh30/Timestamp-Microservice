@@ -46,10 +46,7 @@ function unixtime(date){
 function parseDate(time){
   var t=time;
   time=new Date(time*1000);
-  var str=time.getMonth();
-  str+=" "+time.getDay();
-  str+=", ";
-  str+=time.getYear();
+  var str=time.toDateString();
   return {
     unixtime:t,
     natural:str
@@ -58,7 +55,7 @@ function parseDate(time){
 }
 app.get('/:time',function(req,res){
   var date=req.params.date;
-  res.send(unixtime(date));
+  res.send(parseDate(date));
 });
 //my code ends
 // Respond not found to all the wrong routes
