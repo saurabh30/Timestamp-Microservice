@@ -38,8 +38,10 @@ app.route('/')
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
 //my code from here
-function unixtime(time){
-  return {unixtime:time.getTime()}
+function unixtime(date){
+  var d=d;
+  date=new Date(d*1000);
+  return {unixtime:d}
 }
 function parseDate(time){
   var t=time;
@@ -55,8 +57,8 @@ function parseDate(time){
   
 }
 app.get('/:time',function(req,res){
-  var time=req.params.time;
-  res.send(parseDate(time));
+  var date=req.params.date;
+  res.send(unixtime(date));
 });
 //my code ends
 // Respond not found to all the wrong routes
