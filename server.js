@@ -37,10 +37,15 @@ app.route('/')
     .get(function(req, res) {
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
+//my code from here
+function unixtime(time){
+  return {unixtime:time.getTime()}
+}
 app.get('/:time',function(req,res){
-  var time=req.params.time;
-  res.end(time);
+  var time=new Date(req.params.time);
+  res.send(time);
 });
+//my code ends
 // Respond not found to all the wrong routes
 app.use(function(req, res, next){
   res.status(404);
