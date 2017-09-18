@@ -41,9 +41,22 @@ app.route('/')
 function unixtime(time){
   return {unixtime:time.getTime()}
 }
+function parseDate(time){
+  var t=time;
+  time=new Date(time*1000);
+  var str=time.getMonth();
+  str+=" "+time.getDay();
+  str+=", ";
+  str+=time.getYear();
+  return {
+    unixtime:t,
+    natural:str
+  }
+  
+}
 app.get('/:time',function(req,res){
-  var time=new Date(req.params.time);
-  res.send(time);
+  var time=req.params.time;
+  res.send(parseDate(time));
 });
 //my code ends
 // Respond not found to all the wrong routes
