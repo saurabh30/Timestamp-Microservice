@@ -44,7 +44,7 @@ function unixtime(date){
   date=moment.unix(d);
   return {
     unixtime:d,
-    natural:date.format()    
+    natural:date.format("MMMM D,YYYY")    
   }
 }
 function parseDate(date){
