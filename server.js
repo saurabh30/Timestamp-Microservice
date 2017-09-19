@@ -7,6 +7,7 @@
 
 var fs = require('fs');
 var express = require('express');
+var moment=require('moment');
 var app = express();
 
 if (!process.env.DISABLE_XORIGIN) {
@@ -40,10 +41,10 @@ app.route('/')
 //my code from here
 function unixtime(date){
   var d=date;
-  date=new Date(d*1000);
+  date=moment.unix(d);
   return {
     unixtime:d,
-    natural:date.toDateString()     
+    natural:date.format()    
   }
 }
 function parseDate(date){
