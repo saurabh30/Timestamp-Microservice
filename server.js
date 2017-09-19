@@ -58,7 +58,7 @@ function parseDate(date){
 app.get('/:date',function(req,res){
   var date=new Date(req.params.date).getTime();
   
-  res.send(typeof(req.params.date));
+  res.send(parseDate(req.params.date));
 });
 //my code ends
 // Respond not found to all the wrong routes
