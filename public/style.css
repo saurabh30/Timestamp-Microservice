@@ -5,7 +5,7 @@ body {
 	font-size: 16px;
 	color: #222;
 	background-color: #ECF0F1;
-	text-align: center;
+	margin-left:5%;
 }
 
 .container {
@@ -19,6 +19,7 @@ body {
 
 ol {
 	list-style-position: inside;
+  
 }
 ul {
 	list-style-type: none;
@@ -32,4 +33,7 @@ a {
 img {
 	margin: 20px auto 0 auto;
 	display: block;
+}
+h2{
+  align:left
 }
