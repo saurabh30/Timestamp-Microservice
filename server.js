@@ -58,7 +58,7 @@ function parseDate(date){
 app.get('/:date',function(req,res){
   var date=req.params.date;
   var obj;
-  if(/^\D+/.test(date)){
+  if(!(/^\d+$/.test(date))){
     obj=unixtime(date);
   }
   else{
