@@ -56,8 +56,10 @@ function parseDate(date){
   
 }
 app.get('/:date',function(req,res){
-  var date=new Date(req.params.date).getTime();
-  
+  var date=req.params.date;
+  if(date.matches(/\d+/g)){
+    
+  }
   res.send(parseDate(req.params.date));
 });
 //my code ends
