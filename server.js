@@ -39,7 +39,7 @@ app.route('/')
     })
 //my code from here
 function unixtime(date){
-  var d=d;
+  var d=date;
   date=new Date(d*1000);
   return {
     unixtime:d,
