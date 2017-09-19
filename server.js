@@ -57,10 +57,20 @@ function parseDate(date){
 }
 app.get('/:date',function(req,res){
   var date=req.params.date;
-  if(date.matches(/\d+/g)){
-    
+  var obj;
+  if(/\d+/.test(date)){
+    obj=unixtime(date)
   }
-  res.send(parseDate(req.params.date));
+  else{
+    if(new Date(date).getTime()>0){
+      obj=parseDate(date);
+    }
+    else obj={
+      unixtime:null,
+      natural:null
+    }
+  }
+  res.send(obj);
 });
 //my code ends
 // Respond not found to all the wrong routes
